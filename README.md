@@ -6,11 +6,11 @@ This is a simple App built in HTML5,CSS and ReactJS.
 
 ## Demo
 
-Link 👉 To be added.
+👉 [Link](https://thirsty-thompson-206e7f.netlify.app/)
 
 ## Screenshot
 
-To be added.
+![screenshot](https://user-images.githubusercontent.com/4997491/112120624-75cb6380-8be4-11eb-9c14-4da9ea4edf2a.JPG)
 
 ## Installation
 
