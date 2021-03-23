@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import data from "./data";
+import "./App.css";
 
 function App() {
+  const [list, setList] = useState(data);
+
+  const handleOpen = (id) => {
+    setList(
+      list.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            open: !item.open,
+          };
+        } else
+          return {
+            ...item,
+            open: false,
+          };
+      })
+    );
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <h1 className="title">ACCORDION</h1>
+      <div className="card">
+        {list.map((item) => {
+          return (
+            <div key={item.id}>
+              <div className="header">
+                <h1>{item.header}</h1>
+
+                {item.open && (
+                  <i
+                    onClick={() => handleOpen(item.id)}
+                    className="fa fa-close fa-2x"
+                  ></i>
+                )}
+                {!item.open && (
+                  <i
+                    onClick={() => handleOpen(item.id)}
+                    className="fa fa-plus fa-2x"
+                  ></i>
+                )}
+              </div>
+              {item.open && <h3 className="content">{item.body}</h3>}
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
